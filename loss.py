@@ -50,7 +50,7 @@ class Loss(object):
 
         return cvdc_loss
 
-    def vskp(self, ol, ou, label, target, label_propagation, k, cls=8):
+    def vskr(self, ol, ou, label, target, label_propagation, k, cls=8):
         n = len(ol)
         label = label.cpu()
         num_labeled_data = ol[0].size(0)
