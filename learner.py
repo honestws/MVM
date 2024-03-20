@@ -136,7 +136,7 @@ class Learner(object):
                 o = [torch.concat([ol[i], ou[i]], dim=0) for i in range(n)]
                 caco_loss = self.mvm_loss.caco(o)
                 cvdc_loss = self.mvm_loss.cvdc(o)
-                semi_loss = self.mvm_loss.vskp(ol, ou, label, target, self.label_propagation, k)
+                semi_loss = self.mvm_loss.vskr(ol, ou, label, target, self.label_propagation, k)
                 loss = semi_loss + self.opt.lamb1 * cvdc_loss - self.opt.lamb2 * caco_loss
                 self.optimizer.zero_grad()
                 loss.backward(retain_graph=True)
